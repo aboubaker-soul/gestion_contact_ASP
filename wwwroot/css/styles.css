@@ -1,0 +1,148 @@
+.form-Ajout {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  height: 600px;
+  width: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: #040404 solid 2px;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+}
+.form-Ajout .input-field {
+  position: relative;
+  border-bottom: 2px solid #040404;
+  margin: 15px 0;
+  padding: 0;
+  width: 600px;
+  transition: 0.5s all ease-in-out;
+}
+.form-Ajout .input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 1.3em;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+.form-Ajout .input-field input {
+  position: relative;
+  top: 40%;
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.3em;
+  margin: 0px;
+}
+.form-Ajout .input-field input:focus ~ label {
+  transform: translateY(-125%);
+}
+.form-Ajout .input-field input:valid ~ label {
+  transform: translateY(-125%);
+}
+.form-Ajout form {
+  display: grid;
+  grid-template-columns: 1fr, 1fr;
+  position: absolute;
+  height: 500px;
+  width: 100%;
+  position: relative;
+  top: 2%;
+}
+.form-Ajout form .envoyer {
+  position: relative;
+  top: 80%;
+  left: 30%;
+}
+.form-Ajout form .suprimmer {
+  position: relative;
+  left: 80%;
+  cursor: pointer;
+}
+.form-Ajout form .button-Ajouter {
+  cursor: pointer;
+}
+.form-Ajout h1 {
+  text-align: center;
+  height: 40px;
+  margin: 0;
+}
+.form-Ajout label {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.form-Ajout input {
+  font-size: 1.3em;
+}
+
+#numero {
+  display: none;
+}
+
+button.button-10 {
+  touch-action: manipulation;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  width: 200px;
+  height: 40px;
+}
+
+button.button-10 {
+  touch-action: manipulation;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+  padding: 1.25em 2em;
+  background: #eeebf7;
+  border: 2px solid #8e85b1;
+  border-radius: 0.75em;
+  transform-style: preserve-3d;
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.button-10::before {
+  position: absolute;
+  content: "";
+  width: 195px;
+  height: 40px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ccc4f9;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px #8685b1, 0 0.625em 0 0 #e2e2ff;
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.button-10:hover {
+  background: #e9e9ff;
+  transform: translate(0, 0.25em);
+}
+
+button.button-10:hover::before {
+  box-shadow: 0 0 0 2px #8586b1, 0 0.5em 0 0 #e8e2ff;
+  transform: translate3d(0, 0.5em, -1em);
+}
+
+button.button-10:active {
+  background: #efe9ff;
+  transform: translate(0em, 0.75em);
+}
+
+button.button-10:active::before {
+  box-shadow: 0 0 0 2px #8c85b1, 0 0 #e3e2ff;
+  transform: translate3d(0, 0, -1em);
+}/*# sourceMappingURL=style.css.map */

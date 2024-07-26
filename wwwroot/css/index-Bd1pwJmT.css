@@ -1,0 +1,80 @@
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px #0000001a;
+    border-radius: 8px;
+    position:relative;
+    top:140px;
+    left:90px;
+}
+
+#searchInput {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left
+}
+
+th {
+    background-color: #f2f2f2
+}
+
+tr:hover {
+    background-color: #f5f5f5
+}
+
+.action-buttons button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer
+}
+
+button.modify {
+    background-color: #4caf50;
+    color: #fff
+}
+
+button.delete {
+    background-color: #f44336;
+    color: #fff
+}
+
+
+/* CSS pour les boutons "Modifier" et "Supprimer" */
+.btn-modifier {
+    background-color: #28a745; /* Couleur verte */
+    color: #fff; /* Texte blanc */
+}
+
+.btn-supprimer {
+    background-color: #dc3545; /* Couleur rouge */
+    color: #fff; /* Texte blanc */
+}
+
+/* Style général pour tous les boutons dans le tableau */
+tbody .btn {
+    margin-right: 5px; /* Marge à droite pour séparer les boutons */
+    font-size: 14px; /* Taille de police */
+    padding: 5px 10px; /* Rembourrage intérieur */
+    border: none; /* Pas de bordure */
+    cursor: pointer; /* Curseur pointeur */
+}

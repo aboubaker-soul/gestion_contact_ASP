@@ -1,0 +1,154 @@
+﻿@model Projet_gestionContacts.Models.GContactModels.Contact
+
+@{
+    ViewData["Title"] = "Modifier";
+}
+
+<header>
+    <nav>
+        <div class="action">
+            <div class="profile" onclick="menuToggle(event);">
+                <img src="~/img/c.png" />
+            </div>
+            <div class="menu">
+                <h3>
+                    <br />
+                    @if (User.Identity?.Name != null)
+                    {
+                        <span>@User.Identity.Name</span>
+                    }
+                    else
+                    {
+                        <span>USER</span> <!-- Afficher un nom par défaut si l'utilisateur n'est pas connecté -->
+                    }
+                </h3>
+                <br />
+                <img src="~/icons/log-out.png" width="30px" height="30px" />
+                <a class="a" href="@Url.Action("Deconnexion", "GContact")">Déconnection</a>
+            </div>
+        </div>
+
+        
+        <script>
+            function menuToggle() {
+                const toggleMenu = document.querySelector(".menu");
+                toggleMenu.classList.toggle("active");
+            }
+        </script>
+    </nav>
+
+    <div id="nav-bar">
+        <input id="nav-toggle" type="checkbox" />
+        <div id="nav-header">
+            <a id="nav-title" asp-controller="GContact" asp-action="Index">G<i class="fab fa-codepen"></i>USER</a>
+            <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
+            <hr />
+        </div>
+        <div id="nav-content">
+            <div class="nav-button"><i class="fas fa-home"></i><a asp-controller="GContact" asp-action="Index"><span>Acceuil</span></a></div>
+            <div class="nav-button"><i class="fas fa-plus"></i><a asp-controller="GContact" asp-action="Ajouter"><span>Ajouter</span></a></div>
+            <div class="nav-button"><i class="fas fa-heart"></i><a asp-controller="GContact" asp-action="Favorite"><span>Favorite</span></a></div>
+            <div id="nav-content-highlight"></div>
+        </div>
+    </div>
+
+</header>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true">
+    <title>@ViewData["Title"] - Projet_ASP</title>
+</head>
+
+<div class="form-Ajout">
+    <form method="post">
+        <!-- Champs pour les données du contact -->
+        <div class="input-field">
+            <input asp-for="NomContact" class="form-control" placeholder="Entrez le nom du contact" />
+            <label asp-for="NomContact" class="control-label">Nom</label>
+            <span asp-validation-for="NomContact" class="text-danger"></span>
+        </div>
+
+        <div class="input-field">
+            <input asp-for="NumeroMobile" class="form-control" placeholder="Entrez le numéro mobile du contact" />
+            <label asp-for="NumeroMobile" class="control-label">Numéro Mobile</label>
+            <span asp-validation-for="NumeroMobile" class="text-danger"></span>
+        </div>
+
+        <div class="input-field" id="numero">
+            <input asp-for="NumeroPersonnel" class="form-control" placeholder="Entrez le numéro personnel du contact" />
+            <label asp-for="NumeroPersonnel" class="control-label">Numéro Personnel</label>
+            <span asp-validation-for="NumeroPersonnel" class="text-danger"></span>
+        </div>
+
+        <div class="input-field" id="numero">
+            <input asp-for="NumeroFix" class="form-control" placeholder="Entrez le numéro fixe du contact" />
+            <label asp-for="NumeroFix" class="control-label">Numéro Fixe</label>
+            <span asp-validation-for="NumeroFix" class="text-danger"></span>
+        </div>
+
+
+        <div>
+            <span class="button-Ajouter">Ajouter</span>
+            <span class="suprimmer">Supprimer</span>
+        </div><br>
+
+
+
+        <!-- Champ pour le favori (checkbox) -->
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="Favorie" name="Favorie" value="true"
+            @(Model.Favorie.HasValue && Model.Favorie.Value ? "checked" : "") />
+            <label class="form-check-label" for="Favorie">Favorie</label>
+            <input type="hidden" name="Favorie" value="false" /> <!-- Valeur par défaut non cochée -->
+        </div>
+
+
+
+        <div class="input-field">
+            <input asp-for="EmailContact" class="form-control" placeholder="Entrez l'email du contact" />
+            <label asp-for="EmailContact" class="control-label">Email</label>
+            <span asp-validation-for="EmailContact" class="text-danger"></span>
+        </div>
+
+        <div>
+            <button type="submit" class="button-10" role="button" name="Modifier">
+                <span class="text">Modifier</span>
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const Ajouter = document.querySelector('.button-Ajouter')
+    Ajouter.addEventListener('click', function () {
+        let numeros = document.querySelectorAll("#numero")
+        for (let i = 0; i < numeros.length; i++) {
+
+            numeros[i].id = 'none';
+            break;
+        }
+        if (numeros.length === 0) {
+            alert('Tous les champs de numéro sont déjà affichés.');
+            return;
+        }
+    })
+    const supprimer = document.querySelector('.suprimmer')
+    supprimer.addEventListener('click', function () {
+        let numeros = document.querySelectorAll("#none")
+        for (let i = 0; i < numeros.length; i++) {
+
+            numeros[i].id = 'numero';
+            break;
+        }
+        if (numeros.length === 0) {
+            alert('Tous les numero facultative son supprimer');
+            return;
+        }
+    })
+
+
+</script>
+

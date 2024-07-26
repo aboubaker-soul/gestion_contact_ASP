@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Connexion";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Projet_gestionContacts</title>
+    <link rel="stylesheet" href="~/css/exemple1.css" asp-append-version="true" />
+</head>
+<div class="wrapper" align="center">
+    <form asp-action="Connexion" method="post">
+        <h2>Login</h2>
+
+        @* Afficher un message de succès s'il est présent dans TempData *@
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["Message"]
+            </div>
+        }
+
+        @* Afficher un message d'erreur s'il est présent dans ViewBag *@
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="alert alert-danger">
+                @ViewBag.Error
+            </div>
+        }
+
+        <div class="input-field">
+            <input type="text" name="email" required>
+            <label>E-mail</label>
+        </div>
+
+        <div class="input-field">
+            <input type="password" name="pass" required>
+            <label>Mot de passe</label>
+        </div>
+
+        <div class="forget">
+            <!-- Vous pouvez ajouter un lien pour mot de passe oublié ici -->
+        </div>
+
+        <button type="submit" name="Connexion">Connexion</button>
+
+        <div class="register">
+            <p>Pas encore inscrit ? <a href="@Url.Action("Inscription", "GContact")">Inscrivez-vous ici</a></p>
+        </div>
+    </form>
+</div>

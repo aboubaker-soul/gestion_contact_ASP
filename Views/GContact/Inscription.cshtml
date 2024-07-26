@@ -1,0 +1,55 @@
+﻿@model Projet_gestionContacts.Models.GContactModels.Utilisateurs
+
+@{
+    ViewData["Title"] = "Enregistrement";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Projet_gestionContacts</title>
+    <link rel="stylesheet" href="~/css/exemple1.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div class="wrapper" align="center">
+        <form asp-action="Inscription" method="post">
+            <h2>Inscription</h2>
+            @* Afficher un message d'erreur s'il est présent dans ViewBag *@
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            }
+
+            <div class="input-field">
+                <span asp-validation-for="Nom" class="text-danger"></span>
+                <input type="text" asp-for="Nom" required>
+                <label>Nom</label>
+            </div>
+
+            <div class="input-field">
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <input type="text" asp-for="Email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-field">
+                <span asp-validation-for="MotDePasse" class="text-danger"></span>
+                <input type="password" asp-for="MotDePasse" required>
+                <label>Mot de passe</label>
+            </div>
+
+            <button type="submit" name="Inscription">Inscription</button>
+
+            <div class="register">
+                <p>Vous avez déjà un compte ? <a href="@Url.Action("Connexion", "GContact")">Connectez-vous ici</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
